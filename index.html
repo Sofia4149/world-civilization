@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#5b4bdb">
+  <title>ผจญภัยอารยธรรมโลก</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <button class="brand" onclick="showPage('home')">🌍 อารยธรรมโลก</button>
+    <div class="score-box">⭐ <span id="totalScore">0</span></div>
+  </header>
+
+  <main>
+    <section id="home" class="page active">
+      <div class="hero">
+        <div class="hero-icon">🌍</div>
+        <p class="eyebrow">WORLD CIVILIZATIONS</p>
+        <h1>ผจญภัย<br>อารยธรรมโลก</h1>
+        <p>เรียนรู้ประวัติศาสตร์ผ่านการสำรวจ เกม และภารกิจสนุก ๆ</p>
+        <button class="primary-btn" onclick="showPage('map')">🚀 เริ่มการผจญภัย</button>
+      </div>
+
+      <div class="menu-grid">
+        <button class="menu-card" onclick="showPage('map')"><span>🗺️</span><b>สำรวจ 7 อารยธรรม</b><small>เรียนรู้เรื่องราวสำคัญ</small></button>
+        <button class="menu-card" onclick="showPage('solitaire')"><span>🃏</span><b>Word Solitaire</b><small>จับคู่คำศัพท์กับอารยธรรม</small></button>
+        <button class="menu-card" onclick="showPage('detective')"><span>🔎</span><b>เกมนักสืบ</b><small>ไขปริศนาจากหลักฐาน</small></button>
+        <button class="menu-card" onclick="showPage('quiz')"><span>📝</span><b>แบบทดสอบ</b><small>ท้าทายความรู้ของคุณ</small></button>
+      </div>
+    </section>
+
+    <section id="map" class="page">
+      <div class="section-head">
+        <button class="back-btn" onclick="showPage('home')">← กลับ</button>
+        <h2>🗺️ แผนที่ 7 อารยธรรม</h2>
+        <p>แตะอารยธรรมเพื่อเปิดข้อมูล</p>
+      </div>
+      <div id="civilizationGrid" class="civilization-grid"></div>
+    </section>
+
+    <section id="civilization" class="page">
+      <div class="section-head">
+        <button class="back-btn" onclick="showPage('map')">← แผนที่</button>
+        <div id="civDetail"></div>
+      </div>
+    </section>
+
+    <section id="solitaire" class="page">
+      <div class="section-head">
+        <button class="back-btn" onclick="showPage('home')">← กลับ</button>
+        <h2>🃏 Word Solitaire</h2>
+        <p>เลือกอารยธรรมที่ตรงกับคำศัพท์</p>
+      </div>
+      <div class="game-panel">
+        <div class="progress"><span id="solProgress">1 / 8</span><span>คะแนน: <b id="solScore">0</b></span></div>
+        <div id="solCard" class="word-card"></div>
+        <div id="solOptions" class="option-grid"></div>
+        <p id="solFeedback" class="feedback"></p>
+        <button id="solNext" class="primary-btn hidden" onclick="nextSolitaire()">ข้อต่อไป →</button>
+      </div>
+    </section>
+
+    <section id="detective" class="page">
+      <div class="section-head">
+        <button class="back-btn" onclick="showPage('home')">← กลับ</button>
+        <h2>🔎 เกมนักสืบอารยธรรม</h2>
+        <p>อ่านหลักฐานแล้วเลือกคำตอบที่เป็นไปได้มากที่สุด</p>
+      </div>
+      <div class="game-panel">
+        <div class="progress"><span id="detProgress">1 / 6</span><span>คะแนน: <b id="detScore">0</b></span></div>
+        <div id="detCase" class="case-card"></div>
+        <div id="detOptions" class="option-grid"></div>
+        <p id="detFeedback" class="feedback"></p>
+        <button id="detNext" class="primary-btn hidden" onclick="nextDetective()">คดีต่อไป →</button>
+      </div>
+    </section>
+
+    <section id="quiz" class="page">
+      <div class="section-head">
+        <button class="back-btn" onclick="showPage('home')">← กลับ</button>
+        <h2>📝 แบบทดสอบ</h2>
+        <p>ทดสอบความรู้เกี่ยวกับอารยธรรมโลก</p>
+      </div>
+      <div class="game-panel">
+        <div id="quizBox"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>🌍 สื่อการเรียนรู้อารยธรรมโลก</p>
+    <small>ต้นแบบเพื่อใช้ในการเรียนการสอน</small>
+  </footer>
+
+  <div id="toast" class="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
